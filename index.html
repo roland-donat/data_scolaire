@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Analyse de la consommation énergétique et des performances des auxiliaires du tramway d'Angers</title>
+<meta name="author" content="Roland Donat" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="edgemind.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Analyse de la consommation énergétique et des performances des auxiliaires du tramway d'Angers</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table des matières</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6d72fe8">1. Introduction</a></li>
+<li><a href="#sec:data">2. Présentation des données</a></li>
+<li><a href="#sec:analyses_national">3. Analyses au niveau national</a>
+<ul>
+<li><a href="#sec:national_effectif_nb_classes_rep_annee">3.1. national_effectif_nb_classes_rep_annee</a></li>
+<li><a href="#sec:national_effectif_nb_classes_secteur_annee">3.2. national_effectif_nb_classes_secteur_annee</a></li>
+<li><a href="#sec:national_effectif_ips_nb_classes_annee">3.3. national_effectif_ips_nb_classes_annee</a></li>
+</ul>
+</li>
+<li><a href="#sec:analyses_morbihan">4. Analyses au niveau morbihan</a>
+<ul>
+<li><a href="#sec:morbihan_effectif_nb_classes_rep_annee">4.1. morbihan_effectif_nb_classes_rep_annee</a></li>
+<li><a href="#sec:morbihan_effectif_nb_classes_secteur_annee">4.2. morbihan_effectif_nb_classes_secteur_annee</a></li>
+<li><a href="#sec:morbihan_effectif_ips_nb_classes_annee">4.3. morbihan_effectif_ips_nb_classes_annee</a></li>
+<li><a href="#sec:morbihan_effectif_ips_nb_classes_2021">4.4. morbihan_effectif_ips_nb_classes_2021</a></li>
+</ul>
+</li>
+<li><a href="#sec:analyses_séné">5. Analyses au niveau séné</a>
+<ul>
+<li><a href="#sec:séné_effectif_nb_classes_rep_annee">5.1. séné_effectif_nb_classes_rep_annee</a></li>
+<li><a href="#sec:séné_ips_annee">5.2. séné_ips_annee</a></li>
+</ul>
+</li>
+<li><a href="#org66ef30b">6. Annexes</a>
+<ul>
+<li><a href="#orga123680">6.1. Environnement technique</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" width="33%" center="t">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Auteur</td>
+<td class="org-left">Roland Donat</td>
+</tr>
+
+<tr>
+<td class="org-left">Email</td>
+<td class="org-left">roland.donat@edgemind.net</td>
+</tr>
+
+<tr>
+<td class="org-left">Date</td>
+<td class="org-left">12 févr. 2023</td>
+</tr>
+
+<tr>
+<td class="org-left">Version</td>
+<td class="org-left">1.0</td>
+</tr>
+</tbody>
+</table>
+
+<div id="outline-container-org6d72fe8" class="outline-2">
+<h2 id="org6d72fe8"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</div>
+
+
+<div id="outline-container-sec:data" class="outline-2">
+<h2 id="sec:data"><span class="section-number-2">2.</span> Présentation des données</h2>
+<div class="outline-text-2" id="text-sec:data">
+<p>
+Dans cette étude, les deux jeux de données suivants sont utilisés :
+</p>
+<ul class="org-ul">
+<li>Données de consommation des auxiliaires agrégées à la mission, référencées dans la suite par
+<code>effectifs</code>.</li>
+<li>Données sur le suivi temporel des mesures réalisées par les capteurs des climatisations,
+référencées dans la suite par <code>hvac_all</code>.</li>
+</ul>
+
+<p>
+Ces deux jeux de données se limitent aux missions entre les deux terminus de la
+ligne "ANGERS - ROSERAIE" et "AVRILLE - ARDENNE" dans les deux sens.
+</p>
+
+<p>
+D'un point de vue pratique, les données précédentes sont extraites <i>via</i> des requêtes SQL exécutées dans
+l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec:analyses_national" class="outline-2">
+<h2 id="sec:analyses_national"><span class="section-number-2">3.</span> Analyses au niveau national</h2>
+<div class="outline-text-2" id="text-sec:analyses_national">
+</div>
+
+
+<div id="outline-container-sec:national_effectif_nb_classes_rep_annee" class="outline-3">
+<h3 id="sec:national_effectif_nb_classes_rep_annee"><span class="section-number-3">3.1.</span> national_effectif_nb_classes_rep_annee</h3>
+<div class="outline-text-3" id="text-sec:national_effectif_nb_classes_rep_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="orgc142c5d" class="figure">
+<p><img src="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" alt="national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;1&nbsp;: </span><a href="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.html">source</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec:national_effectif_nb_classes_secteur_annee" class="outline-3">
+<h3 id="sec:national_effectif_nb_classes_secteur_annee"><span class="section-number-3">3.2.</span> national_effectif_nb_classes_secteur_annee</h3>
+<div class="outline-text-3" id="text-sec:national_effectif_nb_classes_secteur_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="org43bfd79" class="figure">
+<p><img src="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" alt="national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;2&nbsp;: </span><a href="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec:national_effectif_ips_nb_classes_annee" class="outline-3">
+<h3 id="sec:national_effectif_ips_nb_classes_annee"><span class="section-number-3">3.3.</span> national_effectif_ips_nb_classes_annee</h3>
+<div class="outline-text-3" id="text-sec:national_effectif_ips_nb_classes_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="orga83e8df" class="figure">
+<p><img src="./results/national_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="national_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;3&nbsp;: </span><a href="./results/national_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-sec:analyses_morbihan" class="outline-2">
+<h2 id="sec:analyses_morbihan"><span class="section-number-2">4.</span> Analyses au niveau morbihan</h2>
+<div class="outline-text-2" id="text-sec:analyses_morbihan">
+</div>
+
+
+<div id="outline-container-sec:morbihan_effectif_nb_classes_rep_annee" class="outline-3">
+<h3 id="sec:morbihan_effectif_nb_classes_rep_annee"><span class="section-number-3">4.1.</span> morbihan_effectif_nb_classes_rep_annee</h3>
+<div class="outline-text-3" id="text-sec:morbihan_effectif_nb_classes_rep_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="org5245979" class="figure">
+<p><img src="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" alt="morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;4&nbsp;: </span><a href="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.html">source</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec:morbihan_effectif_nb_classes_secteur_annee" class="outline-3">
+<h3 id="sec:morbihan_effectif_nb_classes_secteur_annee"><span class="section-number-3">4.2.</span> morbihan_effectif_nb_classes_secteur_annee</h3>
+<div class="outline-text-3" id="text-sec:morbihan_effectif_nb_classes_secteur_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="org9017ebc" class="figure">
+<p><img src="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;5&nbsp;: </span><a href="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec:morbihan_effectif_ips_nb_classes_annee" class="outline-3">
+<h3 id="sec:morbihan_effectif_ips_nb_classes_annee"><span class="section-number-3">4.3.</span> morbihan_effectif_ips_nb_classes_annee</h3>
+<div class="outline-text-3" id="text-sec:morbihan_effectif_ips_nb_classes_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="org9c399d3" class="figure">
+<p><img src="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;6&nbsp;: </span><a href="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id="outline-container-sec:morbihan_effectif_ips_nb_classes_2021" class="outline-3">
+<h3 id="sec:morbihan_effectif_ips_nb_classes_2021"><span class="section-number-3">4.4.</span> morbihan_effectif_ips_nb_classes_2021</h3>
+<div class="outline-text-3" id="text-sec:morbihan_effectif_ips_nb_classes_2021">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="org235ddea" class="figure">
+<p><img src="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Nombre total de classes.png" alt="morbihan_IPS_vs_effectif_moy_classe_vs_Nombre total de classes.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;7&nbsp;: </span><a href="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Nombre total de classes.html">source</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div id="outline-container-sec:analyses_séné" class="outline-2">
+<h2 id="sec:analyses_séné"><span class="section-number-2">5.</span> Analyses au niveau séné</h2>
+<div class="outline-text-2" id="text-sec:analyses_séné">
+</div>
+
+
+<div id="outline-container-sec:séné_effectif_nb_classes_rep_annee" class="outline-3">
+<h3 id="sec:séné_effectif_nb_classes_rep_annee"><span class="section-number-3">5.1.</span> séné_effectif_nb_classes_rep_annee</h3>
+<div class="outline-text-3" id="text-sec:séné_effectif_nb_classes_rep_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="org606408c" class="figure">
+<p><img src="./results/séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.png" alt="séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;8&nbsp;: </span><a href="./results/séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.html">source</a>.</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec:séné_ips_annee" class="outline-3">
+<h3 id="sec:séné_ips_annee"><span class="section-number-3">5.2.</span> séné_ips_annee</h3>
+<div class="outline-text-3" id="text-sec:séné_ips_annee">
+<p>
+<b>Objectif de l'analyse :</b>
+</p>
+
+<p>
+<b>Données utilisées :</b> <code>effectifs</code>
+</p>
+
+<p>
+<b>Supports de l'analyse :</b>
+</p>
+<ul class="org-ul">
+<li>Figure</li>
+</ul>
+
+<p>
+<b>Note de lecture :</b>
+</p>
+
+<p>
+<b>Observations :</b>
+</p>
+
+
+<div id="orgd517b88" class="figure">
+<p><img src="./results/séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.png" alt="séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.png" scale="1" />
+</p>
+<p><span class="figure-number">Figure&nbsp;9&nbsp;: </span><a href="./results/séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.html">source</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org66ef30b" class="outline-2">
+<h2 id="org66ef30b"><span class="section-number-2">6.</span> Annexes</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orga123680" class="outline-3">
+<h3 id="orga123680"><span class="section-number-3">6.1.</span> Environnement technique</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Les librairies <code>Python</code> utilisées dans les traitements présentés dans ce document sont :
+</p>
+<style type="text/css">
+</style>
+<table id="T_c2986">
+  <thead>
+    <tr>
+      <th id="T_c2986_level0_col0" class="col_heading level0 col0" >Library</th>
+      <th id="T_c2986_level0_col1" class="col_heading level0 col1" >Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_c2986_row0_col0" class="data row0 col0" >Pandas</td>
+      <td id="T_c2986_row0_col1" class="data row0 col1" >1.4.4</td>
+    </tr>
+    <tr>
+      <td id="T_c2986_row1_col0" class="data row1 col0" >Plotly</td>
+      <td id="T_c2986_row1_col1" class="data row1 col1" >5.10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
