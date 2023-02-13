@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Analyse de la consommation énergétique et des performances des auxiliaires du tramway d'Angers</title>
+<title>Analyse des effectifs scolaires</title>
 <meta name="author" content="Roland Donat" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
@@ -18,13 +18,18 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Analyse de la consommation énergétique et des performances des auxiliaires du tramway d'Angers</h1>
+<h1 class="title">Analyse des effectifs scolaires</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table des matières</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org487078c">1. Introduction</a></li>
-<li><a href="#sec:data">2. Présentation des données</a></li>
+<li><a href="#org7fb6f6a">1. Introduction</a></li>
+<li><a href="#sec:data">2. Présentation des données</a>
+<ul>
+<li><a href="#org209a219">2.1. Effectifs</a></li>
+<li><a href="#orgdf22940">2.2. Indice de position sociale</a></li>
+</ul>
+</li>
 <li><a href="#sec:analyses_national">3. Analyses au niveau national</a>
 <ul>
 <li><a href="#sec:national_effectif_nb_classes_rep_annee">3.1. national_effectif_nb_classes_rep_annee</a></li>
@@ -49,9 +54,9 @@
 <li><a href="#sec:séné_ips_annee">5.2. séné_ips_annee</a></li>
 </ul>
 </li>
-<li><a href="#org1301225">6. Annexes</a>
+<li><a href="#org31bb3b3">6. Annexes</a>
 <ul>
-<li><a href="#orgd5a5ec4">6.1. Environnement technique</a></li>
+<li><a href="#org73a8b7d">6.1. Environnement technique</a></li>
 </ul>
 </li>
 </ul>
@@ -68,7 +73,7 @@
 <tbody>
 <tr>
 <td class="org-left">Date</td>
-<td class="org-right">12 févr. 2023</td>
+<td class="org-right">13 févr. 2023</td>
 </tr>
 
 <tr>
@@ -78,8 +83,8 @@
 </tbody>
 </table>
 
-<div id="outline-container-org487078c" class="outline-2">
-<h2 id="org487078c"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org7fb6f6a" class="outline-2">
+<h2 id="org7fb6f6a"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </div>
@@ -88,27 +93,85 @@
 <div id="outline-container-sec:data" class="outline-2">
 <h2 id="sec:data"><span class="section-number-2">2.</span> Présentation des données</h2>
 <div class="outline-text-2" id="text-sec:data">
-<p>
-Dans cette étude, les deux jeux de données suivants sont utilisés :
-</p>
-<ul class="org-ul">
-<li>Données de consommation des auxiliaires agrégées à la mission, référencées dans la suite par
-<code>effectifs</code>.</li>
-<li>Données sur le suivi temporel des mesures réalisées par les capteurs des climatisations,
-référencées dans la suite par <code>hvac_all</code>.</li>
-</ul>
+</div>
 
+<div id="outline-container-org209a219" class="outline-3">
+<h3 id="org209a219"><span class="section-number-3">2.1.</span> Effectifs</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
-Ces deux jeux de données se limitent aux missions entre les deux terminus de la
-ligne "ANGERS - ROSERAIE" et "AVRILLE - ARDENNE" dans les deux sens.
+Effectifs d’élèves par niveau et nombre de classes par école – Date d’observation au début du mois
+d’octobre chaque année.
 </p>
 
 <p>
-D'un point de vue pratique, les données précédentes sont extraites <i>via</i> des requêtes SQL exécutées dans
-l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev. 
+Source : DEPP, Ministère de l’Éducation Nationale, de la Jeunesse et des Sports, DEPP
+</p>
+
+<p>
+Champ : établissements publics et privés sous contrat, métropole et DOM
+</p>
+
+<p>
+Abréviations utilisées :
+REP : Réseau d’Éducation Prioritaire
+REP+ : Réseau d’Éducation Prioritaire Plus
+ULIS : Unités Localisées pour l'Inclusion Scolaire
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgdf22940" class="outline-3">
+<h3 id="orgdf22940"><span class="section-number-3">2.2.</span> Indice de position sociale</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+L’indice de position sociale (IPS) permet d'appréhender le statut social des élèves à partir des professions et catégories sociales (PCS) de leurs parents. Pour chaque PCS, la valeur numérique de l’IPS correspond à un résumé quantitatif d’un ensemble d’attributs socio-économiques et culturels liés à la réussite scolaire.
+</p>
+
+<p>
+Concrètement, pour déterminer les valeurs associées à chaque PCS, nous avons considéré la moyenne pondérée de caractéristiques telles que les diplômes, les pratiques culturelles, les conditions matérielles, le capital culturel et l’implication des parents dans la scolarité. Cette méthodologie statistique est décrite dans l’article de Rocher (2016) et s’appuie sur une méthode d’analyse de données (analyse des correspondances multiples) réalisée à partir du panel de la DEPP d’élèves entrés en sixième en 2007. Les valeurs de référence de l’IPS sont disponibles pour chaque PCS et pour chaque croisement de PCS (mère-père), cf. Rocher (2016).
+</p>
+
+<p>
+Ainsi, dès lors que les PCS des parents ont été recueillies, il suffit d'appliquer les valeurs de référence de l’IPS. Le niveau social d'un établissement scolaire est apprécié à travers le calcul de la moyenne des IPS des élèves qui y sont scolarisés.
+</p>
+
+<p>
+Il convient de rappeler que, comme tout indice synthétique, il s’agit d’un résumé simplifié de la réalité, qui ne peut rendre compte à lui seul de la complexité de la situation socio-économique et culturelle des élèves accueillis dans un établissement.
+</p>
+
+<p>
+Enfin, l’IPS étant basé sur les PCS déclarées par les familles et enregistrées par les établissements, il est soumis à une certaine marge d’erreur : ainsi, il est conseillé de ne pas sur-interpréter des différences de 3 points ou moins concernant les IPS moyens des écoles.
+</p>
+
+<p>
+Champ :
+Le fichier fournit les IPS moyens des écoles de France métropolitaine et des DROM, publiques et privées sous contrat, calculés à partir des données de la rentrée N.
+</p>
+
+<p>
+Le calcul des IPS des écoles est effectué à partir des élèves de CM2, dont on connaît les PCS lorsqu’ils sont en 6ème. Il correspond plus exactement à la moyenne de l’IPS des anciens élèves de l’école sur les cinq dernières années. En outre, les IPS sont fournis uniquement pour les écoles ayant eu au moins 25 élèves de CM2 sur les cinq dernières années. De ce fait les écoles maternelles sont exclues du champ puisqu’elles n’ont pas d’élèves de CM2.
+</p>
+
+<p>
+Dans le fichier mis à disposition, chaque ligne correspond à une école pour une année scolaire donnée.
+</p>
+
+<p>
+Modifications : un premier fichier sur l’IPS des écoles a été déposé le 05/10/2022. Il présentait l’IPS des écoles ayant eu plus de 5 élèves de CM2 sur les cinq dernières années.
+</p>
+
+<p>
+Référence :
+</p>
+
+<p>
+Rocher, T. (2016). Construction d’un indice de position sociale des élèves. Éducation &amp; formations,
+DEPP, 90, pp.5-27. 
+</p>
+</div>
+</div>
+</div>
+
 <div id="outline-container-sec:analyses_national" class="outline-2">
 <h2 id="sec:analyses_national"><span class="section-number-2">3.</span> Analyses au niveau national</h2>
 <div class="outline-text-2" id="text-sec:analyses_national">
@@ -142,7 +205,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="orgd80dd20" class="figure">
+<div id="org34fcd23" class="figure">
 <p><img src="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" alt="national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;1&nbsp;: </span><a href="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.html">source</a>.</p>
@@ -179,7 +242,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org05a51f7" class="figure">
+<div id="org65669ad" class="figure">
 <p><img src="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" alt="national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;2&nbsp;: </span><a href="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -217,7 +280,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org1aacb2c" class="figure">
+<div id="orge6bab1a" class="figure">
 <p><img src="./results/national_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="national_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;3&nbsp;: </span><a href="./results/national_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -263,7 +326,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org4cab2fe" class="figure">
+<div id="org9eea1cb" class="figure">
 <p><img src="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" alt="morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;4&nbsp;: </span><a href="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.html">source</a>.</p>
@@ -300,7 +363,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org63873dc" class="figure">
+<div id="org8e0b07c" class="figure">
 <p><img src="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;5&nbsp;: </span><a href="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -338,7 +401,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org3929fc1" class="figure">
+<div id="orge754035" class="figure">
 <p><img src="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;6&nbsp;: </span><a href="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -378,7 +441,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org2ba292b" class="figure">
+<div id="org448135c" class="figure">
 <p><img src="./results/morbihan_2021_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_2021_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;7&nbsp;: </span><a href="./results/morbihan_2021_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -419,7 +482,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="orgb712f4a" class="figure">
+<div id="org55462b0" class="figure">
 <p><img src="./results/morbihan_2021_5_10_cls_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_2021_5_10_cls_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;8&nbsp;: </span><a href="./results/morbihan_2021_5_10_cls_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -460,7 +523,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="orge86d410" class="figure">
+<div id="org5f83e54" class="figure">
 <p><img src="./results/morbihan_2021_public_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" alt="morbihan_2021_public_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;9&nbsp;: </span><a href="./results/morbihan_2021_public_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.html">source</a>.</p>
@@ -501,7 +564,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org3be6b84" class="figure">
+<div id="org7363989" class="figure">
 <p><img src="./results/morbihan_2021_public_5_10_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" alt="morbihan_2021_public_5_10_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;10&nbsp;: </span><a href="./results/morbihan_2021_public_5_10_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.html">source</a>.</p>
@@ -549,7 +612,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org30805f8" class="figure">
+<div id="org3cfbb5d" class="figure">
 <p><img src="./results/séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.png" alt="séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;11&nbsp;: </span><a href="./results/séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.html">source</a>.</p>
@@ -585,7 +648,7 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 </p>
 
 
-<div id="org6bb962e" class="figure">
+<div id="org5db8b76" class="figure">
 <p><img src="./results/séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.png" alt="séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;12&nbsp;: </span><a href="./results/séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.html">source</a>.</p>
@@ -597,33 +660,33 @@ l'environnement SandBox de la plateforme Snowflake déployée chez RATP Dev.
 
 
 
-<div id="outline-container-org1301225" class="outline-2">
-<h2 id="org1301225"><span class="section-number-2">6.</span> Annexes</h2>
+<div id="outline-container-org31bb3b3" class="outline-2">
+<h2 id="org31bb3b3"><span class="section-number-2">6.</span> Annexes</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgd5a5ec4" class="outline-3">
-<h3 id="orgd5a5ec4"><span class="section-number-3">6.1.</span> Environnement technique</h3>
+<div id="outline-container-org73a8b7d" class="outline-3">
+<h3 id="org73a8b7d"><span class="section-number-3">6.1.</span> Environnement technique</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Les librairies <code>Python</code> utilisées dans les traitements présentés dans ce document sont :
 </p>
 <style type="text/css">
 </style>
-<table id="T_7fbb7">
+<table id="T_a96bc">
   <thead>
     <tr>
-      <th id="T_7fbb7_level0_col0" class="col_heading level0 col0" >Library</th>
-      <th id="T_7fbb7_level0_col1" class="col_heading level0 col1" >Version</th>
+      <th id="T_a96bc_level0_col0" class="col_heading level0 col0" >Library</th>
+      <th id="T_a96bc_level0_col1" class="col_heading level0 col1" >Version</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_7fbb7_row0_col0" class="data row0 col0" >Pandas</td>
-      <td id="T_7fbb7_row0_col1" class="data row0 col1" >1.4.4</td>
+      <td id="T_a96bc_row0_col0" class="data row0 col0" >Pandas</td>
+      <td id="T_a96bc_row0_col1" class="data row0 col1" >1.4.4</td>
     </tr>
     <tr>
-      <td id="T_7fbb7_row1_col0" class="data row1 col0" >Plotly</td>
-      <td id="T_7fbb7_row1_col1" class="data row1 col1" >5.10.0</td>
+      <td id="T_a96bc_row1_col0" class="data row1 col0" >Plotly</td>
+      <td id="T_a96bc_row1_col1" class="data row1 col1" >5.10.0</td>
     </tr>
   </tbody>
 </table>
