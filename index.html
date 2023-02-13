@@ -23,11 +23,11 @@
 <h2>Table des matières</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7fb6f6a">1. Introduction</a></li>
+<li><a href="#org4f7222f">1. Introduction</a></li>
 <li><a href="#sec:data">2. Présentation des données</a>
 <ul>
-<li><a href="#org209a219">2.1. Effectifs</a></li>
-<li><a href="#orgdf22940">2.2. Indice de position sociale</a></li>
+<li><a href="#sec:data_effectifs">2.1. Données <code>effectifs</code></a></li>
+<li><a href="#sec:data_ips">2.2. Données <code>IPS</code></a></li>
 </ul>
 </li>
 <li><a href="#sec:analyses_national">3. Analyses au niveau national</a>
@@ -54,9 +54,9 @@
 <li><a href="#sec:séné_ips_annee">5.2. séné_ips_annee</a></li>
 </ul>
 </li>
-<li><a href="#org31bb3b3">6. Annexes</a>
+<li><a href="#org3582d4a">6. Annexes</a>
 <ul>
-<li><a href="#org73a8b7d">6.1. Environnement technique</a></li>
+<li><a href="#orgc7b5bc0">6.1. Environnement technique</a></li>
 </ul>
 </li>
 </ul>
@@ -83,8 +83,8 @@
 </tbody>
 </table>
 
-<div id="outline-container-org7fb6f6a" class="outline-2">
-<h2 id="org7fb6f6a"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org4f7222f" class="outline-2">
+<h2 id="org4f7222f"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </div>
@@ -93,11 +93,23 @@
 <div id="outline-container-sec:data" class="outline-2">
 <h2 id="sec:data"><span class="section-number-2">2.</span> Présentation des données</h2>
 <div class="outline-text-2" id="text-sec:data">
+<p>
+Les analyses présentées dans ce document ont été réalisées à partir des données mise en <i>opendata</i>
+par l'Éducation Nationales : <a href="https://data.education.gouv.fr/pages/explore-portal/">https://data.education.gouv.fr/pages/explore-portal/</a>
+</p>
+
+<p>
+Deux jeux de données ont été utilisés :
+</p>
+<ul class="org-ul">
+<li>Effectifs d’élèves par niveau et nombre de classes par école, cf. Section <a href="#sec:data_effectifs">2.1</a>.</li>
+<li>Indices de Position Sociale (IPS) par école, cf. Section <a href="#sec:data_ips">2.2</a>.</li>
+</ul>
 </div>
 
-<div id="outline-container-org209a219" class="outline-3">
-<h3 id="org209a219"><span class="section-number-3">2.1.</span> Effectifs</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-sec:data_effectifs" class="outline-3">
+<h3 id="sec:data_effectifs"><span class="section-number-3">2.1.</span> Données <code>effectifs</code></h3>
+<div class="outline-text-3" id="text-sec:data_effectifs">
 <p>
 Effectifs d’élèves par niveau et nombre de classes par école – Date d’observation au début du mois
 d’octobre chaque année.
@@ -120,9 +132,9 @@ ULIS : Unités Localisées pour l'Inclusion Scolaire
 </div>
 </div>
 
-<div id="outline-container-orgdf22940" class="outline-3">
-<h3 id="orgdf22940"><span class="section-number-3">2.2.</span> Indice de position sociale</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-sec:data_ips" class="outline-3">
+<h3 id="sec:data_ips"><span class="section-number-3">2.2.</span> Données <code>IPS</code></h3>
+<div class="outline-text-3" id="text-sec:data_ips">
 <p>
 L’indice de position sociale (IPS) permet d'appréhender le statut social des élèves à partir des professions et catégories sociales (PCS) de leurs parents. Pour chaque PCS, la valeur numérique de l’IPS correspond à un résumé quantitatif d’un ensemble d’attributs socio-économiques et culturels liés à la réussite scolaire.
 </p>
@@ -205,7 +217,7 @@ DEPP, 90, pp.5-27.
 </p>
 
 
-<div id="org34fcd23" class="figure">
+<div id="org9e2bb2c" class="figure">
 <p><img src="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" alt="national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;1&nbsp;: </span><a href="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.html">source</a>.</p>
@@ -242,7 +254,7 @@ DEPP, 90, pp.5-27.
 </p>
 
 
-<div id="org65669ad" class="figure">
+<div id="orgd62fc9e" class="figure">
 <p><img src="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" alt="national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;2&nbsp;: </span><a href="./results/national_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -280,7 +292,7 @@ DEPP, 90, pp.5-27.
 </p>
 
 
-<div id="orge6bab1a" class="figure">
+<div id="org91da4b2" class="figure">
 <p><img src="./results/national_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="national_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;3&nbsp;: </span><a href="./results/national_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -326,7 +338,7 @@ DEPP, 90, pp.5-27.
 </p>
 
 
-<div id="org9eea1cb" class="figure">
+<div id="org7acebba" class="figure">
 <p><img src="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" alt="morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;4&nbsp;: </span><a href="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_rep_cat.html">source</a>.</p>
@@ -363,7 +375,7 @@ DEPP, 90, pp.5-27.
 </p>
 
 
-<div id="org8e0b07c" class="figure">
+<div id="orgd7ed326" class="figure">
 <p><img src="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;5&nbsp;: </span><a href="./results/morbihan_nb_classes_d_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -379,6 +391,8 @@ DEPP, 90, pp.5-27.
 <div class="outline-text-3" id="text-sec:morbihan_effectif_ips_nb_classes_annee">
 <p>
 <b>Objectif de l'analyse :</b>
+Analyser la répartition en termes d'effectifs moyens et d'IPS des écoles du Morbihan entre les
+rentrées 2019 et 2021. 
 </p>
 
 <p>
@@ -395,13 +409,17 @@ DEPP, 90, pp.5-27.
 <p>
 <b>Note de lecture :</b>
 </p>
+<ul class="org-ul">
+<li>Chaque point représente un établissement.</li>
+<li>La couleur des points indique si l'école est du secteur public ou privé.</li>
+</ul>
 
 <p>
 <b>Observations :</b>
 </p>
 
 
-<div id="orge754035" class="figure">
+<div id="orgdf519fa" class="figure">
 <p><img src="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;6&nbsp;: </span><a href="./results/morbihan_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -419,6 +437,7 @@ DEPP, 90, pp.5-27.
 <div class="outline-text-3" id="text-sec:morbihan_effectif_ips_nb_classes_2021">
 <p>
 <b>Objectif de l'analyse :</b>
+Analyser la répartition en termes d'effectifs moyens et d'IPS des écoles du Morbihan en 2021. 
 </p>
 
 <p>
@@ -435,13 +454,19 @@ DEPP, 90, pp.5-27.
 <p>
 <b>Note de lecture :</b>
 </p>
+<ul class="org-ul">
+<li>Chaque point représente un établissement.</li>
+<li>La couleur des points indique si l'école est du secteur public ou privé.</li>
+<li>Le point vert représente Dolto.</li>
+</ul>
+
 
 <p>
 <b>Observations :</b>
 </p>
 
 
-<div id="org448135c" class="figure">
+<div id="orgf9ce73b" class="figure">
 <p><img src="./results/morbihan_2021_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_2021_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;7&nbsp;: </span><a href="./results/morbihan_2021_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -460,6 +485,8 @@ DEPP, 90, pp.5-27.
 <div class="outline-text-3" id="text-sec:morbihan_effectif_ips_5_10_2021">
 <p>
 <b>Objectif de l'analyse :</b>
+Analyser la répartition en termes d'effectifs moyens et d'IPS des écoles du Morbihan ayant entre 5
+et 10 classes en 2021. 
 </p>
 
 <p>
@@ -476,13 +503,18 @@ DEPP, 90, pp.5-27.
 <p>
 <b>Note de lecture :</b>
 </p>
+<ul class="org-ul">
+<li>Chaque point représente une école.</li>
+<li>La couleur des points indique si l'école est du secteur public ou privé.</li>
+<li>Le point vert représente Dolto.</li>
+</ul>
 
 <p>
 <b>Observations :</b>
 </p>
 
 
-<div id="org55462b0" class="figure">
+<div id="org29fe47d" class="figure">
 <p><img src="./results/morbihan_2021_5_10_cls_IPS_vs_effectif_moy_classe_vs_Secteur.png" alt="morbihan_2021_5_10_cls_IPS_vs_effectif_moy_classe_vs_Secteur.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;8&nbsp;: </span><a href="./results/morbihan_2021_5_10_cls_IPS_vs_effectif_moy_classe_vs_Secteur.html">source</a>.</p>
@@ -501,6 +533,8 @@ DEPP, 90, pp.5-27.
 <div class="outline-text-3" id="text-sec:morbihan_effectif_ips_statut_ien_2021">
 <p>
 <b>Objectif de l'analyse :</b>
+Analyser les décisions de fermetures de classe de l'IEN en février 2023 en termes d'effectifs moyens
+et d'IPS des écoles du Morbihan en 2021.  
 </p>
 
 <p>
@@ -517,13 +551,18 @@ DEPP, 90, pp.5-27.
 <p>
 <b>Note de lecture :</b>
 </p>
+<ul class="org-ul">
+<li>Chaque point représente un école.</li>
+<li>La couleur des points représente les décisions de fermeture de l'IEN en février 2023.</li>
+<li>Le point vert représente Dolto.</li>
+</ul>
 
 <p>
 <b>Observations :</b>
 </p>
 
 
-<div id="org5f83e54" class="figure">
+<div id="org45f5e46" class="figure">
 <p><img src="./results/morbihan_2021_public_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" alt="morbihan_2021_public_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;9&nbsp;: </span><a href="./results/morbihan_2021_public_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.html">source</a>.</p>
@@ -542,6 +581,8 @@ DEPP, 90, pp.5-27.
 <div class="outline-text-3" id="text-sec:morbihan_effectif_ips_5_10_statut_ien_2021">
 <p>
 <b>Objectif de l'analyse :</b>
+Analyser les décisions de fermetures de classe de l'IEN en février 2023 en termes d'effectifs moyens et d'IPS des écoles du Morbihan ayant entre 5
+et 10 classes en 2021. 
 </p>
 
 <p>
@@ -558,13 +599,18 @@ DEPP, 90, pp.5-27.
 <p>
 <b>Note de lecture :</b>
 </p>
+<ul class="org-ul">
+<li>Chaque point représente une école.</li>
+<li>La couleur des points représente les décisions de fermeture de l'IEN en février 2023.</li>
+<li>Le point vert représente Dolto.</li>
+</ul>
 
 <p>
 <b>Observations :</b>
 </p>
 
 
-<div id="org7363989" class="figure">
+<div id="org7c13b96" class="figure">
 <p><img src="./results/morbihan_2021_public_5_10_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" alt="morbihan_2021_public_5_10_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;10&nbsp;: </span><a href="./results/morbihan_2021_public_5_10_cls_IPS_vs_effectif_moy_classe_vs_decision_ien_2022.html">source</a>.</p>
@@ -612,7 +658,7 @@ DEPP, 90, pp.5-27.
 </p>
 
 
-<div id="org3cfbb5d" class="figure">
+<div id="orgf8caae9" class="figure">
 <p><img src="./results/séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.png" alt="séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;11&nbsp;: </span><a href="./results/séné_Rentrée scolaire_vs_effectif_moy_classe_vs_Patronyme.html">source</a>.</p>
@@ -648,7 +694,7 @@ DEPP, 90, pp.5-27.
 </p>
 
 
-<div id="org5db8b76" class="figure">
+<div id="org7d02139" class="figure">
 <p><img src="./results/séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.png" alt="séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.png" scale="1" />
 </p>
 <p><span class="figure-number">Figure&nbsp;12&nbsp;: </span><a href="./results/séné_Rentrée scolaire_vs_IPS_vs_Nom de l'établissment.html">source</a>.</p>
@@ -660,33 +706,33 @@ DEPP, 90, pp.5-27.
 
 
 
-<div id="outline-container-org31bb3b3" class="outline-2">
-<h2 id="org31bb3b3"><span class="section-number-2">6.</span> Annexes</h2>
+<div id="outline-container-org3582d4a" class="outline-2">
+<h2 id="org3582d4a"><span class="section-number-2">6.</span> Annexes</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org73a8b7d" class="outline-3">
-<h3 id="org73a8b7d"><span class="section-number-3">6.1.</span> Environnement technique</h3>
+<div id="outline-container-orgc7b5bc0" class="outline-3">
+<h3 id="orgc7b5bc0"><span class="section-number-3">6.1.</span> Environnement technique</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Les librairies <code>Python</code> utilisées dans les traitements présentés dans ce document sont :
 </p>
 <style type="text/css">
 </style>
-<table id="T_a96bc">
+<table id="T_4daf0">
   <thead>
     <tr>
-      <th id="T_a96bc_level0_col0" class="col_heading level0 col0" >Library</th>
-      <th id="T_a96bc_level0_col1" class="col_heading level0 col1" >Version</th>
+      <th id="T_4daf0_level0_col0" class="col_heading level0 col0" >Library</th>
+      <th id="T_4daf0_level0_col1" class="col_heading level0 col1" >Version</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_a96bc_row0_col0" class="data row0 col0" >Pandas</td>
-      <td id="T_a96bc_row0_col1" class="data row0 col1" >1.4.4</td>
+      <td id="T_4daf0_row0_col0" class="data row0 col0" >Pandas</td>
+      <td id="T_4daf0_row0_col1" class="data row0 col1" >1.4.4</td>
     </tr>
     <tr>
-      <td id="T_a96bc_row1_col0" class="data row1 col0" >Plotly</td>
-      <td id="T_a96bc_row1_col1" class="data row1 col1" >5.10.0</td>
+      <td id="T_4daf0_row1_col0" class="data row1 col0" >Plotly</td>
+      <td id="T_4daf0_row1_col1" class="data row1 col1" >5.10.0</td>
     </tr>
   </tbody>
 </table>
